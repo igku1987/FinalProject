@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="766.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Button fx:id="open_file" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="96.0" text="Open file">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="encrypt_file" disable="true" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="96.0" text="Encrypt file" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <TabPane layoutX="7.0" layoutY="132.0" prefHeight="628.0" prefWidth="1060.0" style="-fx-border-color: black;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Source text">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="sourceTextField" layoutX="9.0" layoutY="7.0" prefHeight="572.0" prefWidth="1040.0" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Encrypt text">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="733.0">
+                     <children>
+                        <TextArea fx:id="encryptTextField" layoutX="9.0" layoutY="7.0" prefHeight="571.0" prefWidth="1041.0" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Decrypt text with key">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="decryptWithKeyTextField" layoutX="9.0" layoutY="7.0" prefHeight="521.0" prefWidth="1041.0" wrapText="true" />
+                        <Button fx:id="decryptFileWithKey" disable="true" layoutX="9.0" layoutY="542.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Decrypt file" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Decrypt text &quot;brut force&quot;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="decryptBrutForceTextField" layoutX="9.0" layoutY="7.0" prefHeight="521.0" prefWidth="1041.0" wrapText="true" />
+                        <Button fx:id="decryptFileBrutForce" disable="true" layoutX="9.0" layoutY="542.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Decrypt file" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Decrypt text with statistical analysis">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="decryptSaTextField" layoutX="9.0" layoutY="7.0" prefHeight="521.0" prefWidth="1041.0" wrapText="true" />
+                        <Button fx:id="decryptFileSa" disable="true" layoutX="151.0" layoutY="542.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Decrypt file" />
+                        <Button fx:id="loadReferenceFile" disable="true" layoutX="9.0" layoutY="542.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" text="Load reference file" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Bars statistics">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="barTrue" animated="false" barGap="10.0" layoutX="19.0" layoutY="44.0" prefHeight="258.0" prefWidth="1015.0" title="True statistic">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="yAxis" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="barFalse" animated="false" barGap="10.0" layoutX="21.0" layoutY="311.0" prefHeight="262.0" prefWidth="1015.0" title="False statistic">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" fx:id="xAxis1" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="yAxis1" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <Button fx:id="showStat" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="Show statistic">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="file_name1" layoutX="114.0" layoutY="4.0" text="File name:">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="keyField" layoutX="114.0" layoutY="92.0" prefHeight="31.0" prefWidth="109.0" promptText="Enter the key" />
+      <Label fx:id="meaningKey" layoutX="7.0" layoutY="103.0" text="Key meaning:">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="file_name11" layoutX="882.0" layoutY="4.0" text="Created by Igor Kurjanov">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="file_name" layoutX="114.0" layoutY="32.0" />
+   </children>
+</AnchorPane>
