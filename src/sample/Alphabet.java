@@ -70,6 +70,7 @@ public class Alphabet {
 
     public String ceaserKeyDecript (Path path, ArrayList<Character> alphabetCripto, int key) throws IOException {
         String string = Files.readString(path);
+        key = key % alphabetCripto.size();
         StringBuilder stringBuilder = new StringBuilder();
         char[] chars = string.toCharArray();
         for (int i = 0; i < chars.length; i++) {

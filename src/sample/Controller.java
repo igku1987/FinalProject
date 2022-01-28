@@ -149,6 +149,7 @@ public class Controller {
         });
 
         decryptFileWithKey.setOnAction(actionEvent -> {
+            key = Integer.valueOf(keyField.getText());
             String fileDecrypt = openDialog().getPath();
                 try {
                     decryptWithKeyTextField.setText(alphabet.ceaserKeyDecript(Path.of(fileDecrypt),alphabetCripto,key));
